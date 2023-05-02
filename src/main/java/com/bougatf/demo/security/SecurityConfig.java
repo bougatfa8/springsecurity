@@ -36,13 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/**").hasAnyAuthority("ADMIN","USER");
 		  
 		  //ajouter un nouveau produit
-	    http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/**").hasAuthority("ADMIN");
+	    http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/**").hasAuthority("ADMIN","USER");
 		  
 		  //modifier un produit
-	    http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/**").hasAuthority("ADMIN");
+	    http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/**").hasAuthority("ADMIN","USER");
 		  
 	//supprimer un produit
-	http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/**").hasAuthority("ADMIN");
+	http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/**").hasAuthority("ADMIN","USER");
 		  	  
 	
 	http.sessionManagement().
